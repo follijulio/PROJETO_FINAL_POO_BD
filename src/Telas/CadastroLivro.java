@@ -89,7 +89,6 @@ public class CadastroLivro extends javax.swing.JFrame {
         area_nome_autor = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         area_nac_autor = new javax.swing.JTextField();
-        botao_continuar_pesquisa_autor = new javax.swing.JButton();
         botao_continuar_cadastro = new javax.swing.JButton();
         sair = new javax.swing.JButton();
         botao_voltar_menu = new javax.swing.JButton();
@@ -98,6 +97,8 @@ public class CadastroLivro extends javax.swing.JFrame {
         tabela_autores = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         area_id_funcionario = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
 
         jTextField5.setText("jTextField1");
 
@@ -116,7 +117,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         jLabel4.setText("GÊNERO");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel5.setText("LANÇAMENTO");
+        jLabel5.setText("ANO DE LANÇAMENTO");
 
         jLabel6.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel6.setText("NUMERO DE PÁGINAS");
@@ -169,13 +170,6 @@ public class CadastroLivro extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel16.setText("QUAL A NACIONALIDADE DESSE AUTOR?");
 
-        botao_continuar_pesquisa_autor.setText("CONTINUAR");
-        botao_continuar_pesquisa_autor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botao_continuar_pesquisa_autorActionPerformed(evt);
-            }
-        });
-
         botao_continuar_cadastro.setText("continuar");
         botao_continuar_cadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +183,7 @@ public class CadastroLivro extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("EMPRESTAR LIVRO");
+        jLabel17.setText("CADASTRAR LIVRO");
 
         tabela_autores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,6 +197,18 @@ public class CadastroLivro extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel18.setText("CÓDIGO DO FUNCIONÁRIO QUE ESTÁ CADASTRANDO");
+
+        area_id_funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                area_id_funcionarioActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("SÓ PREENCHA OS CAMPOS ABAIXO SE CASO O AUTOR NÃO ESTEJA CADASTRADO");
+
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("OBRIGATÓRIO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,50 +243,35 @@ public class CadastroLivro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(botao_voltar_menu)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel17))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(area_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(area_lancamento, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(area_editora))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(sair)))))
+                                .addComponent(area_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(area_lancamento, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(area_editora))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(botao_voltar_menu)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sair)))
                         .addGap(6, 6, 6))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(area_id_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botao_continuar_cadastro))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(area_nome_autor))
-                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(area_pesquisa_id_autor, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botao_continuar_pesquisa_autor, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3))
+                                .addComponent(area_pesquisa_id_autor))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,6 +280,21 @@ public class CadastroLivro extends javax.swing.JFrame {
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(area_nac_autor)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(area_id_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botao_continuar_cadastro))
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -330,13 +336,12 @@ public class CadastroLivro extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(area_pesquisa_id_autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botao_continuar_pesquisa_autor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(area_pesquisa_id_autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -350,17 +355,21 @@ public class CadastroLivro extends javax.swing.JFrame {
                     .addComponent(area_nasc_autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(area_id_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel18))
                     .addComponent(botao_continuar_cadastro))
-                .addContainerGap())
+                .addGap(26, 26, 26))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(254, 254, 254)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(222, Short.MAX_VALUE)))
+                    .addContainerGap(290, Short.MAX_VALUE)))
         );
 
         pack();
@@ -376,40 +385,67 @@ public class CadastroLivro extends javax.swing.JFrame {
       resp = false;
   }//GEN-LAST:event_botao_estoqueActionPerformed
 
-  private void botao_continuar_pesquisa_autorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_continuar_pesquisa_autorActionPerformed
-      // TODO add your handling code here:
-  }//GEN-LAST:event_botao_continuar_pesquisa_autorActionPerformed
-
   private void botao_continuar_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_continuar_cadastroActionPerformed
       // TODO add your handling code here:
-      existe = autorDAO.existeAutorPorId(Integer.parseInt(area_pesquisa_id_autor.getText()));
-      if (existe) {
+      String pesquisaIdAutor = area_pesquisa_id_autor.getText().trim();
 
-          id_autor = Integer.parseInt(area_pesquisa_id_autor.getText());
-      }
-      FuncionarioDAO funcionario = new FuncionarioDAO();
-      if (existe == false) {
-          Livro livro;
-          livro = new Livro(area_titulo.getText(), resp, area_lancamento.getText(), area_editora.getText(), area_genero.getText(), Integer.parseInt(area_numPag.getText()), area_idioma_original.getText(), area_idioma_atual.getText(), autorDAO.quantidadeAutores() + 1, area_nome_autor.getText(), area_nac_autor.getText(), area_nasc_autor.getText(), funcionario.procurarFuncionarioCodigo(area_id_funcionario.getText()));
-          LivroDAO livros = new LivroDAO();
-          livros.inserirLivro(livro);
+      if (pesquisaIdAutor.isEmpty()) {
+          existe = false;
       } else {
-          int id_funcionario = funcionario.procurarFuncionarioCodigo(area_id_funcionario.getText());
-          System.out.println("ID FUNCIONÁRIO: " + id_funcionario);
-          Autor autor;
-          autor = autorDAO.pegarAutor(id_autor);
-          Livro livro;
-          livro = new Livro(area_titulo.getText(), resp, area_lancamento.getText(), area_editora.getText(), area_genero.getText(), Integer.parseInt(area_numPag.getText()), area_idioma_original.getText(), area_idioma_atual.getText(), autor.getId(), autor.getPseudonimo(), autor.getNacionalidade(), autor.getNascimento(), id_funcionario);
-          LivroDAO livros = new LivroDAO();
-          livros.inserirLivro(livro);
+          existe = autorDAO.existeAutorPorId(Integer.parseInt(pesquisaIdAutor));
+
+          if (existe) {
+              id_autor = Integer.parseInt(pesquisaIdAutor);
+          }
       }
+
+      FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+      LivroDAO livrosDAO = new LivroDAO();
+
+      Autor autor;
+
+      if (!existe) {
+          autor = new Autor(
+                  autorDAO.quantidadeAutores() + 1,
+                  area_nome_autor.getText(),
+                  area_nac_autor.getText(),
+                  area_nasc_autor.getText()
+          );
+          autorDAO.inserirAutor(autor);
+      } else {
+          autor = autorDAO.pegarAutor(id_autor);
+      }
+
+      Livro livro = new Livro(
+              area_titulo.getText(),
+              resp,
+              area_lancamento.getText(),
+              area_editora.getText(),
+              area_genero.getText(),
+              Integer.parseInt(area_numPag.getText()),
+              area_idioma_original.getText(),
+              area_idioma_atual.getText(),
+              autor.getId(),
+              autor.getPseudonimo(),
+              autor.getNacionalidade(),
+              autor.getNascimento(),
+              funcionarioDAO.procurarFuncionarioCodigo(area_id_funcionario.getText())
+      );
+
+      livrosDAO.inserirLivro(livro);
+
       MenuPrincipal menu = new MenuPrincipal();
       menu.setVisible(true);
+
   }//GEN-LAST:event_botao_continuar_cadastroActionPerformed
 
   private void area_tituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_area_tituloActionPerformed
       // TODO add your handling code here:
   }//GEN-LAST:event_area_tituloActionPerformed
+
+    private void area_id_funcionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_area_id_funcionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_area_id_funcionarioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField area_editora;
@@ -426,7 +462,6 @@ public class CadastroLivro extends javax.swing.JFrame {
     private javax.swing.JTextField area_pesquisa_id_autor;
     private javax.swing.JTextField area_titulo;
     private javax.swing.JButton botao_continuar_cadastro;
-    private javax.swing.JButton botao_continuar_pesquisa_autor;
     private javax.swing.JToggleButton botao_emprestado;
     private javax.swing.JToggleButton botao_estoque;
     private javax.swing.JButton botao_voltar_menu;
@@ -439,7 +474,9 @@ public class CadastroLivro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
